@@ -25,8 +25,8 @@
 #define CHAR_SIZE 17
 #define LOAN_PRINTF_1 "      Loan: %s  Interest: %.2f%%\n"
 
-/*** globals ***/
-char *loan_yea_c="$Id: loan_yea.c,v 3.1 2021/12/26 21:18:12 jmccue Exp $";
+extern char *buf;
+extern ssize_t buf_size;
 
 /*
  * loan_year_ask() -- ask user for options
@@ -34,8 +34,6 @@ char *loan_yea_c="$Id: loan_yea.c,v 3.1 2021/12/26 21:18:12 jmccue Exp $";
 char loan_year_ask(int *year, int num_years, double p, double i)
      
 {
-  static char *buf = (char *) NULL;
-  static ssize_t buf_size = 0;
   int key = 0;
   
   if (*year == 1)

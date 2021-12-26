@@ -23,8 +23,9 @@
 #include "loan.h"
 
 /*** globals ***/
-char *loan_sum_c="$Id: loan_sum.c,v 3.1 2021/12/26 21:18:12 jmccue Exp $";
 extern char *program_name;
+extern char *buf;
+extern ssize_t buf_size;
 
 /*
  * verify_key() -- Makes sure the key used is ok
@@ -93,9 +94,9 @@ void loan_sumr(double prin, double payment, double rate, double total_payment,
   if (page)
     {
       if (years >= MAX_YEARS)
-	fprintf(stdout, "\n%s %s %s '%c' %s;  '%c' %s;  '%c' %s ? ", LIT_TYPE, LIT_RERUN, LIT_OR, RERUN, LIT_RERUN, PRINT, LIT_LIST, QUIT, LIT_QUIT);
+	fprintf(stdout, "\n%s %s %s '%c' %s;  '%c' %s;  '%c' %s ? ", LIT_TYPE, LIT_RETURN, LIT_OR, RERUN, LIT_RERUN, PRINT, LIT_LIST, QUIT, LIT_QUIT);
       else
-	fprintf(stdout, "\n%s %s %s '%c' %s;  '%c' %s;  '%c' %s;  '%c' %s ? ", LIT_TYPE, LIT_RERUN, LIT_OR, RERUN, LIT_RERUN, DETAIL, LIT_DETAIL_INFO, PRINT, LIT_LIST, QUIT, LIT_QUIT);
+	fprintf(stdout, "\n%s %s %s '%c' %s;  '%c' %s;  '%c' %s;  '%c' %s ? ", LIT_TYPE, LIT_RETURN, LIT_OR, RERUN, LIT_RERUN, DETAIL, LIT_DETAIL_INFO, PRINT, LIT_LIST, QUIT, LIT_QUIT);
       fflush(stdout);
     }
   else
@@ -114,8 +115,6 @@ char show_summary(double prin, double payment, double rate,
 		  int years, int page, int print_feed)
 
 {
-  static char *buf = (char *) NULL;
-  static ssize_t buf_size = 0;
   char action = LOAN_NULL;
   double total_payment;
   

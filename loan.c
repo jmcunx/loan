@@ -25,16 +25,15 @@
 #include "loan.h"
 
 /*** globals ***/
-char *loan_c="$Id: loan.c,v 3.1 2021/12/26 21:18:12 jmccue Exp $";
+char *buf = (char *) NULL;
+ssize_t buf_size = 0;
 char *exec_program = (char *) NULL;
 char *program_name = (char *) NULL;
 int run_mode = LOAN_BACKGROUND;
 
-/* prototypes */
-double power(double, int );
-double comp(double, double, int);
-int process_loan(double *, double *, int *, int);
-
+/*
+ * rnddbl()
+ */
 double rnddbl(double a, int decimal)
 
 {

@@ -24,8 +24,9 @@
 #include "loan.h"
 
 /*** globals ***/
+extern char *buf;
+extern ssize_t buf_size;
 extern char *program_name;
-char *loan_get_c="$Id: loan_get.c,v 3.1 2021/12/26 21:18:12 jmccue Exp $";
 
 /*
  * get_loan() -- Gets loan information
@@ -33,8 +34,6 @@ char *loan_get_c="$Id: loan_get.c,v 3.1 2021/12/26 21:18:12 jmccue Exp $";
 void get_loan(double *p, double *i, int *y)
 
 {
-  static char *buf = (char *) NULL;
-  static ssize_t buf_size;
 
   CLEAR_SCREEN;
   

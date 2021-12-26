@@ -17,8 +17,8 @@
 
 #ifndef LOAN_H
 
-#define LOAN_H "$Id: loan.h,v 3.1 2021/12/26 21:18:12 jmccue Exp $"
-#define LOAN_VERSION "     3.1"
+#define LOAN_VERSION "     4.1"
+#define LOAN_H "INCLUDED"
 
 /*** loan specific messages ***/
 #define LIT_LOAN_01 "Loan Information"
@@ -32,8 +32,8 @@
 #define LIT_LOAN_09 "this allows redirection to a printer."
 #define LIT_LOAN_10 "3. If Years are greater than"
 #define LIT_LOAN_11 "Detail info CANNOT be generated"
-#define LIT_LOAN_12 "4. Enter 0 in any of the fields to exit"
-#define LIT_LOAN_13 "5. If amounts entered are VERY large some results may be incorrect"
+#define LIT_LOAN_12 "4. If amounts entered are VERY large some results may be incorrect"
+#define LIT_LOAN_13 "5. Enter 0 in any of the fields to exit"
 #define LIT_LOAN_14 "INVALID Device or File Name, please Enter the device (Ex: printer)"
 #define LIT_LOAN_15 "or File you want to send the listing to."
 #define LIT_LOAN_16 "List on device/file"
@@ -109,6 +109,7 @@
 
 #define LIT_REV      "Revision"
 #define LIT_INFO_01  "\tBuild: %s %s\n"
+#define LIT_INFO_02  "j_lib2 built:"
 #define USG_MSG_USAGE      "usage:\t%s [OPTIONS] [FILES ...]\n"
 #define USG_MSG_OPTIONS    "Options\n"
 
@@ -128,7 +129,7 @@
 #define MSG_ERR_67    "ERROR E67: Terminal not found for stdin OR stdout\n"
 #define MSG_ERR_68    "ERROR E68: inconsistent arguments for '%c%c', '%c%c' and '%c%c'\n"
 
-#if MSDOS
+#if _MSDOS
 #  define SWITCH_CHAR '/'
 #  define LOAN_SCANF_DOUBLE "%lf"
 #  define CLEAR_SCREEN system("cls")
@@ -165,5 +166,3 @@ int fmtdbl(double, char *, int, int, int);
 int fmtlong(long, char *, int, int);
 
 #endif
-
-/****************************** end - loan.h - ******************************/

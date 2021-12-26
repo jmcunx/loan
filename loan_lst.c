@@ -28,7 +28,6 @@
 #define MAX_CMD 2048
 
 /*** globals ***/
-char *loan_lst_c="$Id: loan_lst.c,v 3.1 2021/12/26 21:18:12 jmccue Exp $";
 extern char *exec_program;
 extern char *program_name;
 
@@ -108,7 +107,7 @@ void loan_lst(double p, double i, int y)
   char route_device[MAX_CMD], y_n;
   char command[MAX_CMD];
   
-#if MSDOS
+#if _MSDOS
   itoa(y,route_device,10);
 #else
   fmtlong( ((long) y), route_device, 7, FALSE);
