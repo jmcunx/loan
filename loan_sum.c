@@ -127,7 +127,7 @@ char show_summary(double prin, double payment, double rate,
       loan_sumr(prin,payment,rate,total_payment,years,page,print_feed);
       if (page)
 	{
-	  if (getline(&buf, &buf_size, stdin) > 0)
+	  if (getline(&buf, &buf_size, stdin) > -1)
 	    {
 	      if (j2_bye_nl(buf) == 1)
 		action = buf[0];

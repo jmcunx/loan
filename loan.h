@@ -17,7 +17,7 @@
 
 #ifndef LOAN_H
 
-#define LOAN_VERSION "     4.1"
+#define LOAN_VERSION "     4.2"
 #define LOAN_H "INCLUDED"
 
 /*** loan specific messages ***/

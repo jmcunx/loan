@@ -68,7 +68,7 @@ char loan_year_ask(int *year, int num_years, double p, double i)
   
   fflush(stdout);
   
-  if (getline(&buf, &buf_size, stdin) > 0)
+  if (getline(&buf, &buf_size, stdin) > -1)
     {
       if (j2_bye_nl(buf) == 1)
 	key = buf[0];
