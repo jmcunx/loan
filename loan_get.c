@@ -58,7 +58,7 @@ void get_loan(double *p, double *i, int *y)
   else
     fprintf(stdout, MSG_LOAN_PI1);
   fflush(stdout); /* make sure message goes to screen */
-  if (getline(&buf, &buf_size, stdin) > -1)
+  if (j2_getline(&buf, &buf_size, stdin) > -1)
     {
       if (j2_bye_nl(buf) > 0)
 	(*p) = conv_dbl(buf);
@@ -78,7 +78,7 @@ void get_loan(double *p, double *i, int *y)
   else
     fprintf(stdout, MSG_LOAN_QI2, (*i));
   
-  if (getline(&buf, &buf_size, stdin) > -1)
+  if (j2_getline(&buf, &buf_size, stdin) > -1)
     {
       if (j2_bye_nl(buf) > 0)
 	(*i) = conv_dbl(buf);
@@ -98,7 +98,7 @@ void get_loan(double *p, double *i, int *y)
   else
     fprintf(stdout, MSG_LOAN_YI1);
   fflush(stdout); /* make sure message goes to screen */
-  if (getline(&buf, &buf_size, stdin) > -1)
+  if (j2_getline(&buf, &buf_size, stdin) > -1)
     {
       if (j2_bye_nl(buf) > 0)
 	(*y) = atoi(buf);
