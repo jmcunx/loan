@@ -26,7 +26,7 @@
 
 /*** globals ***/
 char *buf = (char *) NULL;
-ssize_t buf_size = 0;
+size_t buf_size = 0;
 char *exec_program = (char *) NULL;
 char *program_name = (char *) NULL;
 int run_mode = LOAN_BACKGROUND;

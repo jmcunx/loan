@@ -25,7 +25,7 @@
 
 /*** globals ***/
 extern char *buf;
-extern ssize_t buf_size;
+extern size_t buf_size;
 extern char *program_name;
 
 /*

@@ -25,7 +25,7 @@
 /*** globals ***/
 extern char *program_name;
 extern char *buf;
-extern ssize_t buf_size;
+extern size_t buf_size;
 
 /*
  * verify_key() -- Makes sure the key used is ok

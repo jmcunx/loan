@@ -26,7 +26,7 @@
 #define LOAN_PRINTF_1 "      Loan: %s  Interest: %.2f%%\n"
 
 extern char *buf;
-extern ssize_t buf_size;
+extern size_t buf_size;
 
 /*
  * loan_year_ask() -- ask user for options
