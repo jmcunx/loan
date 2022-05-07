@@ -412,6 +412,8 @@ int main(int argc, char **argv)
   for (i = RERUN; i == RERUN; )
     i = process_loan(&prin, &rate, &years, print_feed);
   
-  exit(0);
+  if (program_name != (char *) NULL)
+    free(program_name);
+  exit(EXIT_SUCCESS);
 
 } /* main() */
