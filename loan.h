@@ -17,7 +17,7 @@
 
 #ifndef LOAN_H
 
-#define LOAN_VERSION "     4.2"
+#define LOAN_VERSION "     4.3"
 #define LOAN_H "INCLUDED"
 
 /*** loan specific messages ***/
@@ -75,7 +75,7 @@
 #define MSG_LOAN_E03 "ERROR: # of Years must be greater than 0"
 
 #define MSG_LOAN_PI1 "What is the Amount of the loan ? "
-#define MSG_LOAN_PI2 "What is the Amount of the loan [%.2f%%] ? "
+#define MSG_LOAN_PI2 "What is the Amount of the loan [%.2f] ? "
 #define MSG_LOAN_QI1 "What is the Interest Rate ? "
 #define MSG_LOAN_QI2 "What is the Interest Rate [%.2f%%] ? "
 #define MSG_LOAN_YI1 "How many Years is the loan for ? "
