@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1990 ... 2021 2022
+ * Copyright (c) 1990 ... 2023 2024
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -17,8 +17,32 @@
 
 #ifndef LOAN_H
 
-#define LOAN_VERSION "     4.3"
+#define LOAN_VERSION "     4.4"
 #define LOAN_H "INCLUDED"
+
+#ifndef JLIB2_CHAR_NULL
+#define NO_JLIB 1
+#define JLIB2_INT_NULL   ((int) '\0')
+#define JLIB2_CHAR_NULL  ((char) '\0')
+#define JLIB2_UCHAR_NULL ((unsigned char) '\0' )
+#endif
+
+#ifndef NULL
+#define NULL '\0'
+#endif
+#ifndef TRUE
+#define TRUE 1
+#endif
+#ifndef FALSE
+#define FALSE 0
+#endif
+
+#ifndef SSIZE_T
+#define SSIZE_T ssize_t
+#endif
+#ifndef TAB_CHAR
+#define TAB_CHAR 0x09
+#endif
 
 /*** loan specific messages ***/
 #define LIT_LOAN_01 "Loan Information"
@@ -54,7 +78,6 @@
 #define LIT_ARROW_09      "-------->"
 #define LIT_ULINE_17      "-----------------"
 #define LIT_L80           "--------------------------------------------------------------------------------"
-#define LIT_DLINE_17      "================"
 
 #define LIT_DETAIL_INFO   "Detail Info"
 
@@ -80,6 +103,10 @@
 #define MSG_LOAN_QI2 "What is the Interest Rate [%.2f%%] ? "
 #define MSG_LOAN_YI1 "How many Years is the loan for ? "
 #define MSG_LOAN_YI2 "How many Years is the loan for [%i] ? "
+
+#ifdef NO_JLIB
+#define LIT_DLINE_17      "================"
+#endif /* NO_JLIB */
 
 /*** Other defaults ***/
 #define LOAN_TRUE 1
@@ -151,6 +178,13 @@
 #  endif
 #endif
 
+#ifndef THOUSAND_SEP
+#define THOUSAND_SEP     ','
+#endif
+#ifndef DECIMAL_POINT
+#define DECIMAL_POINT    '.'
+#endif
+
 /* prototypes */
 char print_year(int *, int, double, double, double, double, double, int, int);
 char loan_year_ask(int *, int, double, double);
@@ -164,5 +198,17 @@ double conv_dbl(char *);
 void process_arg(int, char **, double *, double *, int *, int *);
 int fmtdbl(double, char *, int, int, int);
 int fmtlong(long, char *, int, int);
+
+#ifdef NO_JLIB
+long int j2_rtw(char *buffer);
+char *j2_get_prgname(char *argv_0, char *default_name);
+SSIZE_T j2_getline(char **buf, size_t *n, FILE *fp);
+long int j2_clr_str(char *s, char c, int size);
+int j2_bye_char(char *buffer, char c);
+long int j2_bye_last(char *x, char lastc);
+long int j2_justleft(char *s);
+#define j2_bye_nl(x)    j2_bye_last((x), '\n')
+#define j2_bye_ctlm(x)  j2_bye_last((x), '\r')
+#endif /* NO_JLIB */
 
 #endif

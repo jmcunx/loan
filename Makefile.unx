@@ -1,6 +1,6 @@
 # for loan
 #
-# Copyright (c) 2022 2023
+# Copyright (c) 2022 2023 2024
 #     John McCue <jmccue@jmcunx.com>
 #
 # Permission to use, copy, modify, and distribute this software for any
@@ -68,7 +68,9 @@ CTAGS=ctags
 ECHO=echo
 GZIP=gzip
 LINK=cc
-LIBS=-lj_lib2
+#FOUND_JLIB#LIBS=-lj_lib2
+#NO_JLIB#LIBS=
+#FOUND_JLIB#HJLIB=-DHAVE_JLIB
 MV=mv
 RM=rm -f
 STRIP=strip
@@ -78,15 +80,23 @@ EXE=
 OBJ=.o
 
 #--- for prod
-CFLAGS=-O1 -c $(WALL) -DUNIX -IINCJLIB -DOSTYPE="\"$(OSDESC)\""
-LFLAGS=-O1 $(WALL) -LJLIBLOC -o loan $(LIBS)
+#FOUND_JLIB#CFLAGS=-O1 -c $(WALL) -DUNIX $(HJLIB) -IINCJLIB -DOSTYPE="\"$(OSDESC)\""
+#FOUND_JLIB#LFLAGS=-O1 $(WALL) -LJLIBLOC -o loan $(LIBS)
+#NO_JLIB#CFLAGS=-O1 -c $(WALL) -DUNIX -DOSTYPE="\"$(OSDESC)\""
+#NO_JLIB#LFLAGS=-O1 $(WALL) -o loan $(LIBS)
 
 #--- for valgrind
-#CFLAGS=-g -O0 -c $(WALL) -DUNIX -IINCJLIB -DOSTYPE="\"$(OSDESC)\""
-#LFLAGS=-g -O0 $(WALL) -LJLIBLOC -o loan $(LIBS)
+#VALGRIND##FOUND_JLIB#CFLAGS=-O0 -g -c $(WALL) -DUNIX $(HJLIB) -IINCJLIB -DOSTYPE="\"$(OSDESC)\""
+#VALGRIND##FOUND_JLIB#LFLAGS=-O0 -g $(WALL) -LJLIBLOC -o loan $(LIBS)
+#VALGRIND##NO_JLIB#CFLAGS=-O0 -g -c $(WALL) -DUNIX -DOSTYPE="\"$(OSDESC)\""
+#VALGRIND##NO_JLIB#LFLAGS=-O0 -g -$(WALL) -o loan $(LIBS)
 
-ALL_OBJ=loan$(OBJ) loan_get$(OBJ) loan_i$(OBJ) loan_lst$(OBJ) loan_sum$(OBJ) loan_yea$(OBJ)
-ALL_C=loan.c loan_get.c loan_i.c loan_lst.c loan_sum.c loan_yea.c
+#--- continue on
+#NO_JLIB#JCC=loan_j.c
+#NO_JLIB#JCOB=loan_j$(OBJ)
+
+ALL_OBJ=loan$(OBJ) loan_get$(OBJ) loan_i$(OBJ) $(JCOB) loan_lst$(OBJ) loan_sum$(OBJ) loan_yea$(OBJ)
+ALL_C=loan.c loan_get.c loan_i.c $(JCC) loan_lst.c loan_sum.c loan_yea.c
 ALL_H=loan.h
 
 #
