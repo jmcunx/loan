@@ -21,6 +21,8 @@
 #include <math.h>
 #include <string.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <err.h>
 
 #ifdef HAVE_JLIB
 #include <j_lib2.h>
@@ -45,8 +47,8 @@ double rnddbl(double a, int decimal)
   char n[83];
   char fmt[10];
 
-  sprintf(fmt,"%%80.%df",decimal);
-  sprintf(n,fmt,a);
+  snprintf(fmt, 10, "%%80.%df", decimal);
+  snprintf(n, 83, fmt, a);
 
   j2_justleft(n);
   
@@ -401,6 +403,11 @@ int main(int argc, char **argv)
   double prin = 0; 
   double rate = 0;
   int print_feed = (int) FALSE;
+
+#ifdef OpenBSD
+  if(pledge("stdio rpath wpath cpath proc exec",NULL) == -1)
+    err(1,"pledge\n");
+#endif
   
   exec_program = argv[0];
 
