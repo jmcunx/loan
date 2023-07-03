@@ -17,7 +17,7 @@
 
 #ifndef LOAN_H
 
-#define LOAN_VERSION "     4.4"
+#define LOAN_VERSION "     4.5"
 #define LOAN_H "INCLUDED"
 
 #ifndef JLIB2_CHAR_NULL
