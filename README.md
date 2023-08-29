@@ -1,5 +1,13 @@
 ## loan -- Show Loan Details
 
+**Note:** Starting October 12 2023, GitHub is forcing me to use
+my Cell Phone for 2FA to allow access to my repositories.  I do
+not want Microsoft to have access to my phone.  So updates to
+this project will no longer occur on GitHub.  I will make a note
+of where source can be retrieved from on my Gemini Capsule once
+everything is moved off of GitHub.
+Capsule: gemini://gem.sdf.org/jmccue/ or mirror gemini://sdf.org/jmccue/
+
 loan(1) will create a report showing Loan Details
 over the length of the loan.
 
